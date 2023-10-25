@@ -19,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "Ayam bagian paha atas atau dada yang lezat dibalut dengan tepung yang renyah, dicocol dengan chili oil yang pedas, asin, gurih",
       'Jumlah': 0,
       'Total': 0,
+      'sum': 0,
     },
     {
       'Gambar': '/Images/bbq.png',
@@ -28,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "Ayam bagian paha atas atau dada yang lezat dibalut dengan tepung yang renyah, disiram dengan saus BBQ yang gurih dan asin",
       'Jumlah': 0,
       'Total': 0,
+      'sum': 0,
     },
     {
       'Gambar': '/Images/keju.png',
@@ -37,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "Ayam bagian paha atas atau dada yang lezat dibalut dengan tepung yang renyah, dilengkapi dengan saus keju yang gurih",
       'Jumlah': 0,
       'Total': 0,
+      'sum': 0,
     },
     {
       'Gambar': '/Images/sambal.png',
@@ -46,6 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "Ayam bagian paha atas atau dada yang lezat dibalut dengan tepung yang renyah, digeprek dengan sambal bawang yang gurih, pedas, asin, dan wangi",
       'Jumlah': 0,
       'Total': 0,
+      'sum': 0,
     },
     {
       'Gambar': '/Images/spicy.png',
@@ -55,6 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "Ayam bagian paha bawah atau sayap yang lezat dengan baluran tepung yang renyah, disiram dengan saus Spicy BBQ yang pedas",
       'Jumlah': 0,
       'Total': 0,
+      'sum': 0,
     },
     {
       'Gambar': '/Images/volcano.png',
@@ -64,6 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "Ayam bagian paha bawah atau sayap yang lezat dengan baluran tepung yang renyah, dilumuri dengan saus volcano yang pedas dan gurih",
       'Jumlah': 0,
       'Total': 0,
+      'sum': 0,
     },
     {
       'Gambar': '/Images/spicy.png',
@@ -73,6 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "Ayam bagian paha bawah atau sayap yang lezat dengan baluran tepung yang renyah, disiram dengan saus Spicy BBQ yang pedas",
       'Jumlah': 0,
       'Total': 0,
+      'sum': 0,
     },
     {
       'Gambar': '/Images/volcano.png',
@@ -82,6 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "Ayam bagian paha bawah atau sayap yang lezat dengan baluran tepung yang renyah, dilumuri dengan saus volcano yang pedas dan gurih",
       'Jumlah': 0,
       'Total': 0,
+      'sum': 0,
     },
   ];
 
@@ -164,7 +172,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             Expanded(
                               flex: 1,
                               child: SizedBox(
-                                child: Text(_listProduk[index]['Nama'] ?? ''),
+                                child: Text(
+                                  _listProduk[index]['Nama'] ?? '',
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.w900),
+                                ),
                               ),
                             ),
                           ],

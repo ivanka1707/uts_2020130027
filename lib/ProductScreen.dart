@@ -39,130 +39,144 @@ class _ProductScreenState extends State<ProductScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Consumer<ProdukProvider>(builder: (context, provider, child) {
-        return ListView(
-          children: [
-            Column(
-              children: [
-                Image.asset(widget.data['Gambar'] ?? 'Tidak ada'),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Text(
-                      widget.data['Nama'] ?? 'Tidak ada',
-                      style: const TextStyle(
-                          fontSize: 25, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Text(
-                      widget.data['Harga'].toString(),
-                      style: const TextStyle(fontSize: 25),
-                    ),
-                  ),
-                ),
-                Text(
-                  widget.data['Keterangan'] ?? 'Tidak ada',
-                  style: const TextStyle(fontSize: 15),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      height: 40,
-                      decoration: BoxDecoration(
-                        border: Border.all(),
-                      ),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          shape: const RoundedRectangleBorder(),
-                          backgroundColor: Colors.white,
-                          padding: const EdgeInsets.all(0),
-                        ),
-                        onPressed: () {
-                          _decrementCounter();
-                        },
-                        child: const Text(
-                          "-",
-                          style: TextStyle(color: Colors.black),
+        return Column(
+          children: <Widget>[
+            Expanded(
+              flex: 10,
+              child: ListView(
+                children: [
+                  Column(
+                    children: [
+                      Image.asset(widget.data['Gambar'] ?? 'Tidak ada'),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Text(
+                            widget.data['Nama'] ?? 'Tidak ada',
+                            style: const TextStyle(
+                                fontSize: 25, fontWeight: FontWeight.bold),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Container(
-                      height: 40,
-                      decoration: BoxDecoration(
-                        border: Border.all(),
-                      ),
-                      child: TextFormField(
-                        controller: _controller,
-                        textAlign: TextAlign.center,
-                        decoration: const InputDecoration(),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      height: 40,
-                      decoration: BoxDecoration(
-                        border: Border.all(),
-                      ),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          shape: const RoundedRectangleBorder(),
-                          backgroundColor: Colors.white,
-                          padding: const EdgeInsets.all(0),
-                        ),
-                        onPressed: () {
-                          _incrementCounter();
-                        },
-                        child: const Text(
-                          "+",
-                          style: TextStyle(color: Colors.black),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Text(
+                            widget.data['Harga'].toString(),
+                            style: const TextStyle(fontSize: 25),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                  const Expanded(
-                    flex: 2,
-                    child: SizedBox(),
-                  ),
-                  Expanded(
-                    flex: 4,
-                    child: SizedBox(
-                      height: 40,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          shape: const RoundedRectangleBorder(),
-                          backgroundColor: Colors.red,
-                        ),
-                        onPressed: () {
-                          widget.data['Jumlah'] = int.parse(_controller.text);
-                          widget.data['Total'] = int.parse(_controller.text) *
-                              widget.data['Harga'];
-                          provider.addProduct(widget.data);
-                          Navigator.pop(context);
-                        },
-                        child: const Text(
-                          "Add to Cart",
-                          style: TextStyle(color: Colors.white),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          widget.data['Keterangan'] ?? 'Tidak ada',
+                          style: const TextStyle(fontSize: 15),
                         ),
                       ),
-                    ),
+                    ],
                   ),
                 ],
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        height: 60,
+                        decoration: BoxDecoration(
+                          border: Border.all(),
+                        ),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: const RoundedRectangleBorder(),
+                            backgroundColor: Colors.white,
+                            padding: const EdgeInsets.all(0),
+                          ),
+                          onPressed: () {
+                            _decrementCounter();
+                          },
+                          child: const Text(
+                            "-",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        height: 60,
+                        decoration: BoxDecoration(
+                          border: Border.all(),
+                        ),
+                        child: TextFormField(
+                          controller: _controller,
+                          textAlign: TextAlign.center,
+                          decoration: const InputDecoration(),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        height: 60,
+                        decoration: BoxDecoration(
+                          border: Border.all(),
+                        ),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: const RoundedRectangleBorder(),
+                            backgroundColor: Colors.white,
+                            padding: const EdgeInsets.all(0),
+                          ),
+                          onPressed: () {
+                            _incrementCounter();
+                          },
+                          child: const Text(
+                            "+",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const Expanded(
+                      flex: 2,
+                      child: SizedBox(),
+                    ),
+                    Expanded(
+                      flex: 4,
+                      child: SizedBox(
+                        height: 60,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: const RoundedRectangleBorder(),
+                            backgroundColor: Colors.red,
+                          ),
+                          onPressed: () {
+                            widget.data['Jumlah'] = int.parse(_controller.text);
+                            widget.data['Total'] = int.parse(_controller.text) *
+                                widget.data['Harga'];
+                            widget.data['sum'] += widget.data['Total'];
+                            provider.addProduct(widget.data);
+                            Navigator.pop(context);
+                          },
+                          child: const Text(
+                            "Add to Cart",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             )
           ],

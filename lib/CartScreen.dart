@@ -94,6 +94,8 @@ class _CartScreenState extends State<CartScreen> {
                                         child: Text(
                                           product['Nama'],
                                           textAlign: TextAlign.center,
+                                          style: const TextStyle(
+                                              fontWeight: FontWeight.w700),
                                         ),
                                       ),
                                       Align(
@@ -119,6 +121,41 @@ class _CartScreenState extends State<CartScreen> {
                 ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                children: <Widget>[
+                  const Expanded(
+                    flex: 4,
+                    child: SizedBox(
+                      height: 40,
+                      child: Text(
+                        "",
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: SizedBox(
+                      height: 40,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: const RoundedRectangleBorder(),
+                          backgroundColor: Colors.red,
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text(
+                          "Checkout",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )
           ],
         );
       }),
